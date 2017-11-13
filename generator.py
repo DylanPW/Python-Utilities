@@ -45,7 +45,7 @@ def parse_args():
 
 #Load dictionary from dictionary.txt
 def load_dictionary():
-    file = open("dictionary.txt","r") #opens file with name of "test.txt"
+    file = open("dictionary.txt","r") #opens file with name of "dictionary.txt"
     global dictionary
     dictionary = []
     for line in file:
