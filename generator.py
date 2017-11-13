@@ -1,0 +1,83 @@
+#!/usr/bin/python3
+
+# A script that generates a random list of words by DylanPW
+# github.com/DylanPW
+
+import argparse
+import sys
+import random
+
+# Console colors (not needed but useful to have)
+W  = '\033[0m'  # white
+R  = '\033[31m' # red
+G  = '\033[32m' # green
+O  = '\033[33m' # orange
+B  = '\033[34m' # blue
+P  = '\033[35m' # purple
+C  = '\033[36m' # cyan
+GR = '\033[37m' # gray
+T  = '\033[93m' # tan
+
+def parse_args():
+    #Create arguments
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument("-l",
+                        "--length",
+                        default = 8,
+                        choices = range(1, 1000),
+                        type = int,
+                        help="Number of words to generate",)
+    parser.add_argument("-m",
+                        "--min",
+                        default = 3,
+                        choices = range(1, 30),
+                        type = int,
+                        help = "Minimum word length")
+    parser.add_argument("-x",
+                        "--max",
+                        default = 10000,
+                        choices = range(2, 31),
+                        type = int,
+                        help = "Maximum word length")
+
+    return parser.parse_args()
+
+#Load dictionary from dictionary.txt
+def load_dictionary():
+    file = open("dictionary.txt","r") #opens file with name of "test.txt"
+    global dictionary
+    dictionary = []
+    for line in file:
+        line = line.replace("\n", "")
+        dictionary.append(line)
+
+    file.close()
+
+# Generate words
+def generate(length):
+    for i in range(0, length):
+        selected = 0
+        while selected == 0:
+            secure = random.SystemRandom()
+            selection = secure.choice(dictionary)
+            if (len(selection) >= minimum and len(selection) <= maximum):
+                words.append(selection)
+                selected = 1
+
+# entry point
+if __name__ == "__main__":
+    load_dictionary()
+    args = parse_args()
+
+    # assign global variables for various arguments
+    global length, minimum, maximum
+    length = args.length
+    minimum = args.min
+    maximum = args.max
+
+    #generate the list of words
+    words = []
+    generate(length)
+    printStr = " ".join(str(i) for i in words)
+    print(printStr)
