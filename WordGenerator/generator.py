@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
-# A script that generates a random list of words by DylanPW
+# A script that generates a random list of words by DylanPW.
+# Usage:
 # github.com/DylanPW
 
 import argparse
@@ -27,19 +28,22 @@ def parse_args():
                         default = 8,
                         choices = range(1, 1000),
                         type = int,
-                        help="Number of words to generate",)
-    parser.add_argument("-m",
+                        metavar="[1-1000]",
+                        help="Number of words to generate (1 - 1000). Default is 8.",)
+    parser.add_argument("-mn",
                         "--min",
                         default = 3,
                         choices = range(1, 30),
                         type = int,
-                        help = "Minimum word length")
-    parser.add_argument("-x",
+                        metavar="[1-30]",
+                        help = "Minimum word length (1 - 30 characters). Default is 3")
+    parser.add_argument("-mx",
                         "--max",
-                        default = 10000,
+                        default = 31,
                         choices = range(2, 31),
                         type = int,
-                        help = "Maximum word length")
+                        metavar="[2-31]" ,
+                        help = "Maximum word length (2 - 31 characters). Default is 31")
 
     return parser.parse_args()
 
