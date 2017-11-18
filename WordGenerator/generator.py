@@ -4,11 +4,12 @@
 # Usage:
 # github.com/DylanPW
 
+# import needed libraries
 import argparse
 import sys
 import random
 
-# Console colors (not needed but useful to have)
+# Console colors (not needed but useful to have, mostly for my reference)
 W  = '\033[0m'  # white
 R  = '\033[31m' # red
 G  = '\033[32m' # green
@@ -19,6 +20,7 @@ C  = '\033[36m' # cyan
 GR = '\033[37m' # gray
 T  = '\033[93m' # tan
 
+# Argument parser function
 def parse_args():
     #Create arguments
     parser = argparse.ArgumentParser()
@@ -47,7 +49,7 @@ def parse_args():
 
     return parser.parse_args()
 
-#Load dictionary from dictionary.txt
+# Load dictionary from dictionary.txt
 def load_dictionary():
     file = open("dictionary.txt","r") #opens file with name of "dictionary.txt"
     global dictionary
@@ -63,13 +65,14 @@ def generate(length):
     for i in range(0, length):
         selected = 0
         while selected == 0:
+            # using SystemRandom for cryptographically secure generation
             secure = random.SystemRandom()
             selection = secure.choice(dictionary)
             if (len(selection) >= minimum and len(selection) <= maximum):
                 words.append(selection)
                 selected = 1
 
-# entry point
+# Entry point
 if __name__ == "__main__":
     load_dictionary()
     args = parse_args()
