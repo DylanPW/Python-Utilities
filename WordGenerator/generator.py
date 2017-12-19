@@ -32,20 +32,20 @@ def parse_args():
                         type = int,
                         metavar="[1-1000]",
                         help="Number of words to generate (1 - 1000). Default is 8.",)
-    parser.add_argument("-mn",
+    parser.add_argument("-min",
                         "--min",
                         default = 3,
                         choices = range(1, 30),
                         type = int,
                         metavar="[1-30]",
                         help = "Minimum word length (1 - 30 characters). Default is 3")
-    parser.add_argument("-mx",
+    parser.add_argument("-max",
                         "--max",
                         default = 31,
                         choices = range(2, 31),
                         type = int,
                         metavar="[2-31]" ,
-                        help = "Maximum word length (2 - 31 characters). Default is 31")
+                        help = "Maximum word length (2 - 31 characters). Default is 31.")
 
     return parser.parse_args()
 
