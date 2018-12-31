@@ -12,6 +12,15 @@ import random
 import datetime
 import calendar
 
+#input validation
+def check_values(string):
+    upper = 2999
+    lower = 1
+    value = int(string)
+    if (value < lower or value > upper):
+        raise argparse.ArgumentTypeError(str("Value must be between {0} and {1}").format(lower, upper))
+
+    return int(value)
 # Argument parser function
 def parse_args():
     #Create arguments
@@ -21,16 +30,17 @@ def parse_args():
                         "--earliest",
                         default = datetime.datetime.now().year - 100,
                         choices = range(1, 3000),
-                        type = int,
-                        metavar="[1-1000]",
+                        type = check_values,
+                        metavar="[1-2999]",
                         help="Earliest date to generate. Default is the current year - 100 years.")
     parser.add_argument("-l",
                         "--latest",
                         default = datetime.datetime.now().year,
                         choices = range(1, 3000),
-                        type = int,
-                        metavar="[1-30]",
+                        type = check_values,
+                        metavar="[1-2999]",
                         help = "Earliest date to generate. Default is the current year")
+
     return parser.parse_args()
 
 # Generate date
@@ -40,7 +50,7 @@ def generate_date(min_year, max_year):
     year = secure.randint(min_year, max_year)
     month = secure.randint(1, 12)
     if(month == 2):
-        if (calendar.isleap(selection)):
+        if (calendar.isleap(year)):
             day = secure.randint(1, 29)
         else:
             day = secure.randint(1, 28)
@@ -54,4 +64,5 @@ def generate_date(min_year, max_year):
 # Entry point
 if __name__ == "__main__":
     args = parse_args()
+    # if (args.)
     print(str(generate_date(args.earliest, args.latest)))

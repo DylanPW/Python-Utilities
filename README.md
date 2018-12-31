@@ -1,6 +1,6 @@
 # Python-Utilities
 
-### A collection of scripts that I have written to make my life easier
+### A collection of scripts that I have written to make my life easier (although they aren't especially necessary)
 
 # WordGenerator
 A command line random word generation tools with the following parameters:
@@ -10,5 +10,5 @@ A command line random word generation tools with the following parameters:
 
 # DateGenerator
 A command line utility that generates a date for testing purposes with the following parameters:
-* -e: earliest year that can be generated
-* -l: latest year that can be generated
+* -e: Earliest year that can be generated (1 - 2999). Default is 100 years prior to the current year.
+* -l: Latest year that can be generated (1 - 2999). Default is the current year.

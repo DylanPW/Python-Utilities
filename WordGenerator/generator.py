@@ -20,6 +20,33 @@ C  = '\033[36m' # cyan
 GR = '\033[37m' # gray
 T  = '\033[93m' # tan
 
+#input validation
+def check_length(string):
+    upper = 1000
+    lower = 1
+    value = int(string)
+    if (value < lower or value > upper):
+        raise argparse.ArgumentTypeError(str("Value must be between {0} and {1}").format(lower, upper))
+
+    return int(value)
+
+def check_minimum(string):
+    upper = 30
+    lower = 1
+    value = int(string)
+    if (value < lower or value > upper):
+        raise argparse.ArgumentTypeError(str("Value must be between {0} and {1}").format(lower, upper))
+
+    return int(value)
+    
+def check_maximum(string):
+    upper = 30
+    lower = 1
+    value = int(string)
+    if (value < lower or value > upper):
+        raise argparse.ArgumentTypeError(str("Value must be between {0} and {1}").format(lower, upper))
+
+    return int(value)
 # Argument parser function
 def parse_args():
     #Create arguments
@@ -29,23 +56,23 @@ def parse_args():
                         "--length",
                         default = 8,
                         choices = range(1, 1000),
-                        type = int,
+                        type = check_length,
                         metavar="[1-1000]",
                         help="Number of words to generate (1 - 1000). Default is 8.",)
     parser.add_argument("-min",
                         "--min",
                         default = 3,
-                        choices = range(1, 30),
-                        type = int,
+                        choices = range(1, 31),
+                        type = check_minimum,
                         metavar="[1-30]",
                         help = "Minimum word length (1 - 30 characters). Default is 3")
     parser.add_argument("-max",
                         "--max",
                         default = 31,
-                        choices = range(2, 31),
-                        type = int,
-                        metavar="[2-31]" ,
-                        help = "Maximum word length (2 - 31 characters). Default is 31.")
+                        choices = range(1, 31),
+                        type = check_maximum,
+                        metavar="[1-30]" ,
+                        help = "Maximum word length (1 - 30 characters). Default is 31.")
 
     return parser.parse_args()
 
