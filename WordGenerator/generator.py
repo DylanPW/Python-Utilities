@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 # A script that generates a random list of words by DylanPW.
-# Usage:
+# Usage: ./generator.py [-l numberofwords] [-min minimumwordlength] [-max maximumwordlength]
 # github.com/DylanPW
 
 # import needed libraries
@@ -71,6 +71,7 @@ def generate(length):
             if (len(selection) >= minimum and len(selection) <= maximum):
                 words.append(selection)
                 selected = 1
+
 
 # Entry point
 if __name__ == "__main__":
