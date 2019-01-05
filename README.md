@@ -12,3 +12,8 @@ A command line random word generation tools with the following parameters:
 A command line utility that generates a date for testing purposes with the following parameters:
 * -e: Earliest year that can be generated (1 - 2999). Default is 100 years prior to the current year.
 * -l: Latest year that can be generated (1 - 2999). Default is the current year.
+
+# DateGenerator
+A command line utility that generates a string consisting of random characters
+* -l: Length of string to be generated (1 - 1000000). Default is 8 characters
+

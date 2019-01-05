@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-# A script that generates a random user for testing purposes by DylanPW. Can store users in JSON dump file.
+# A script that generates a random user for testing purposes by DylanPW.
 # Usage: ./dategenerator.py [-e earliestyear] [-l latestyear]
 
 # github.com/DylanPW
@@ -64,5 +64,5 @@ def generate_date(min_year, max_year):
 # Entry point
 if __name__ == "__main__":
     args = parse_args()
-    # if (args.)
+
     print(str(generate_date(args.earliest, args.latest)))
