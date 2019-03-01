@@ -17,3 +17,11 @@ A command line utility that generates a date for testing purposes with the follo
 A command line utility that generates a string consisting of random characters
 * -l: Length of string to be generated (1 - 1000000). Default is 8 characters
 
+# DirectoryPopulator
+A command line utility that creates a bunch of blank files with a specified name.
+* -c: Number of files to generate (1- 1000). Default is 10 files.
+* -p: Prefix of each file, default prefix is "test".
+* -f: Folder to placer files into, default is "new_folder".
+* -e: Extension of file to generate without the ., default is "txt"
+
+
