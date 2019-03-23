@@ -57,12 +57,13 @@ def parse_args():
 
 # Generate files
 def generate(length, prefix, folder, extention):
-    os.mkdir(folder)
+    if not os.path.isdir(folder):
+        os.mkdir(folder)       
     os.chdir(folder)
     # FOR USER READABLE FILE NAMES SO THE LOOP STARTS AT 1
     for i in range(1, length + 1):
         filename = str("{0}_{1}.{2}").format(prefix, i, extention)
-        f = open("%s" % filename, "r")
+        f = open("%s" % filename, "w+")
         f.close()
 
     
