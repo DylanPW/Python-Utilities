@@ -62,7 +62,7 @@ def generate(length, prefix, folder, extention):
     # FOR USER READABLE FILE NAMES SO THE LOOP STARTS AT 1
     for i in range(1, length + 1):
         filename = str("{0}_{1}.{2}").format(prefix, i, extention)
-        f = open("%s" % filename, "x")
+        f = open("%s" % filename, "r")
         f.close()
 
     
