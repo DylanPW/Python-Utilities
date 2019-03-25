@@ -22,6 +22,6 @@ A command line utility that creates a bunch of blank files with a specified name
 * -c: Number of files to generate (1- 1000). Default is 10 files.
 * -p: Prefix of each file, default prefix is "test".
 * -f: Folder to placer files into, default is "new_folder".
-* -e: Extension of file to generate without the ., default is "txt"
+* -e: Extension of file to generate without the delimiter (.), default is "txt"
 
 
