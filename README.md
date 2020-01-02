@@ -24,4 +24,6 @@ A command line utility that creates a bunch of blank files with a specified name
 * -f: Folder to placer files into, default is "new_folder".
 * -e: Extension of file to generate without the delimiter (.), default is "txt"
 
-
+# PathExistance
+A library to determine if a path exists or can be created 
+(derived from code from https://stackoverflow.com/questions/9532499/check-whether-a-path-is-valid-in-python-without-creating-a-file-at-the-paths-ta/34102855)
