@@ -1,4 +1,4 @@
-import errno, os
+import errno, os, sys
 
 ''' 
 module derived from code from:
